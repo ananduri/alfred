@@ -18,10 +18,17 @@ V
 |
 V
 Introduce drops ('socks')
-    - or, bring meals to agent?
-    - or, it has to pick up a certain meal and bring it to Batman,
-      depending on Batman's state
-    - either way, it can't observe the drops (it's dark in the batcave)
-      it just knows when it has collected one (or how many it has collected)
-
-- make number of dimensions tweakable?
+|    - or, bring meals to agent?
+|    - or, it has to pick up a certain meal and bring it to Batman,
+|      depending on Batman's state
+|    - either way, it can't observe the drops (it's dark in the batcave)
+|      it just knows when it has collected one (or how many it has collected)
+|
+--->
+   |
+   V
+   Print the board with socks included
+   |
+   V
+   Refactor code to take in 'state' 'batman' and 'alfred' variables
+   
