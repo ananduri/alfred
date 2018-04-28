@@ -1,23 +1,23 @@
 O
-Make an AI that chases another agent around
+`Make` an _AI_ that chases another agent around
 |
 V
 `Print` out a _grid_
 |
 V
-Create rules for the agent to move
+`Create` _rules_ for the agent to move
 |
 V
-Make another agent follow the first one around
+`Make` another _agent_ follow the first one around
 |
 V
-Put state in a 'state' namedtuple
+`Put` _state_ in a 'state' namedtuple
 |
 V
-* Reorganize code to make it acceptable to show Mike
+`Reorganize` _code_ to make it acceptable to show Mike
 |
 V
-Introduce drops ('socks')
+`Introduce` drops (_'socks'_)
 |    - or, bring meals to agent?
 |    - or, it has to pick up a certain meal and bring it to Batman,
 |      depending on Batman's state
@@ -27,8 +27,18 @@ Introduce drops ('socks')
 --->
    |
    V
-   Print the board with socks included
+   `Print` the _board_ with socks included
    |
    V
-   Refactor code to take in 'state' 'batman' and 'alfred' variables
-   
+   `Refactor` _code_ to take in 'state' 'batman' and 'alfred' variables
+   |
+   V
+   `Make` alfred _'pick up'_ the socks
+   |
+   --->
+      |
+      V
+      * `Implement` _collision detection_
+          - with batman
+          - with socks
+

@@ -1,31 +1,4 @@
-
-
 # Display functions
-
-# def print_field(field, agent):
-#     for x, row in enumerate(field):
-#         for y, square in enumerate(row):
-#             if (x == agent[0] and y == agent[1]):
-#                 print('+', end='')
-#                 continue
-#             print('#', end='') if square else print(' ', end='')
-#         print('\n', end='')
-
-
-# generalize to a function that will print the field and
-# a list of objects that we provide
-def print_field2(field, agent, agent2):
-    for x, row in enumerate(field):
-        for y, square in enumerate(row):
-            if (x == agent[0] and y == agent[1]):
-                print('+', end='')
-                continue
-            elif (x == agent2[0] and y == agent2[1]):
-                print('K', end='')
-                continue
-            print('#', end='') if square else print(' ', end='')
-        print('\n', end='')
-
 
 def print_field(state):
     socks = state.socks
@@ -46,6 +19,7 @@ def print_field(state):
                 continue
             print('#', end='') if square else print(' ', end='')
         print('\n', end='')
+
 
 def print_empty_field(field):
     for x in field:

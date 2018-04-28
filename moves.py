@@ -50,6 +50,7 @@ def keep_moves_on_board(state, agent, moves):
 """
 (highest-elem (map utility moves))
 """
+# if moves is empty, return no-move
 def pick_best_move(state, moves):
     f = partial(utility, state)
     return max(moves, key=f)
@@ -63,3 +64,18 @@ def find_diff(agent1, agent2):
 
 def dot(position1, position2):
     return sum(position1[x] * position2[x] for x in range(len(position1)))
+
+
+"""
+(filter no-collision? moves)
+"""
+# hard-coded to apply to alfred only
+def keep_moves_without_collision(state, agent, moves):
+    return filter(partial(collision, state.alfred, state.batman), moves)
+
+def collision(agent0, agent1, move):
+    new_agent0 = move(agent0)
+    if new_agent0[0] == agent1[0] and new_agent[1] == agent1[1]:
+        return True
+    else:
+        return False

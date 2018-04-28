@@ -25,6 +25,7 @@ state = State(batman, alfred, field, socks)
 # associate moves_knight with batman
 # and moves_king with alfred
 # at a higher level
+# does that imply objects??
 
 
 # Run simulation
@@ -40,6 +41,7 @@ while True:
 
     # get alfred's move
     possible2 = keep_moves_on_board(state, alfred, moves_king)
+    possible3 = keep_moves_without_collision(state, alfred, possible2)
     best_move = pick_best_move(state, possible2)
 
     # update state
@@ -49,5 +51,4 @@ while True:
     
     time.sleep(1)
     print('\n')
-
 
