@@ -71,7 +71,7 @@ def dot(position1, position2):
 (filter no-collision? moves)
 """
 # hard-coded to apply to alfred only
-def keep_moves_without_collision(state, agent, moves):
+def keep_moves_without_collision(state, moves):
     return filter(partial(collision, state.alfred, state.batman), moves)
 
 def collision(agent0, agent1, move):
@@ -81,13 +81,13 @@ def collision(agent0, agent1, move):
     else:
         return False
 
-def picked_up_sock(state, agent):
+def picked_up_sock(state):
     socks = state.socks
+    agent = state.alfred
     for sock in socks:
         if agent[0] == sock[0] and agent[1] == sock[1]:
             return sock
     return None
-
 
 def dropped_sock(state):
     if state.batman not in state.socks and random.random() > 0.8:

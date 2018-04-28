@@ -45,9 +45,19 @@ V
    <---
    |
    V
-   * `Make` batman _drop_ socks
-
-
+   `Make` batman _drop_ socks
+   |
+   V
+   `Introduce` a way to keep track of how many socks are picked up
+   |
+<---
+|
+V   
+`Fix` _bug?_ in keeping track of state
+|
+--->
+   |
+   * `Write` some _unit tests_ for movement
 
 
 

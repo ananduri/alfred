@@ -17,15 +17,16 @@ field = np.ones([size, size], dtype='bool')
 batman = (0, 0)
 alfred = (0, 1)
 
-socks = [(1, 1), (3, 3)]
+initial_socks = [(1, 1), (3, 3)]
+collected_socks = []
 
-state = State(batman, alfred, field, socks)
+state = State(batman, alfred, field, initial_socks)
 
 
 # associate moves_knight with batman
 # and moves_king with alfred
 # at a higher level
-# does that imply objects??
+# does that imply objects? or just structs?
 
 
 # Run simulation
@@ -41,26 +42,27 @@ while True:
 
     # get alfred's move
     possible2 = keep_moves_on_board(state, alfred, moves_king)
-    possible3 = keep_moves_without_collision(state, alfred, possible2)
+    possible3 = keep_moves_without_collision(state, possible2)
     best_move = pick_best_move(state, possible2)
 
     # determine if batman leaves socks behind
-    sock = dropped_sock(state)
-    if sock:
+    potential_dropped_sock = dropped_sock(state)
+    if potential_dropped_sock:
         print('dropped sock')
-        state.socks.append(sock)
+        state.socks.append(potential_dropped_sock)
 
     # detect if alfred picked up socks
-    potential_sock = picked_up_sock(state, alfred)
-    if potential_sock:
+    potential_dropped_sock = picked_up_sock(state)
+    if potential_dropped_sock:
         print('picked up sock')
-        state.socks.remove(potential_sock)
+        collected_socks.append(potential_dropped_sock)
+        state.socks.remove(potential_dropped_sock)
 
 
     # update state
     batman = random_move(batman)
     alfred = best_move(alfred)
-    state = State(batman, alfred, field, socks)
+    state = State(batman, alfred, field, state.socks)
     
     time.sleep(1)
     print('\n')
