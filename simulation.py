@@ -9,7 +9,7 @@ from display import *
 
 State = namedtuple('State', ['batman', 'alfred', 'field', 'socks'])
 
-size = 10
+size = 5
 
 # could also make this periodic
 field = np.ones([size, size], dtype='bool')
@@ -17,7 +17,7 @@ field = np.ones([size, size], dtype='bool')
 batman = (0, 0)
 alfred = (0, 1)
 
-socks = [(4, 4), (3, 3)]
+socks = [(1, 1), (3, 3)]
 
 state = State(batman, alfred, field, socks)
 
@@ -47,6 +47,13 @@ while True:
     # update state
     batman = random_move(batman)
     alfred = best_move(alfred)
+    
+    # detect if alfred picked up socks
+    potential_sock = picked_up_sock(state, alfred)
+    if potential_sock:
+        print('picked up sock')
+        state.socks.remove(potential_sock)
+
     state = State(batman, alfred, field, socks)
     
     time.sleep(1)

@@ -79,3 +79,10 @@ def collision(agent0, agent1, move):
         return True
     else:
         return False
+
+def picked_up_sock(state, agent):
+    socks = state.socks
+    for sock in socks:
+        if agent[0] == sock[0] and agent[1] == sock[1]:
+            return sock
+    return False
