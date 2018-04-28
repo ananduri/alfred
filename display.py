@@ -1,4 +1,4 @@
-# Display functions
+# display functions
 
 def print_field(state):
     socks = state.socks
@@ -6,6 +6,7 @@ def print_field(state):
     batman = state.batman
     alfred = state.alfred
 
+    # z-ordering: batman, alfred, socks, square
     for x, row in enumerate(field):
         for y, square in enumerate(row):
             if (x == batman[0] and y == batman[1]):

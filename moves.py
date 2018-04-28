@@ -4,6 +4,7 @@ than to thave 10 functions that act on 10 data structures.
 """
 
 from functools import partial
+import random
 
 def get_square_from_move(state, agent, move):
     field = state.field
@@ -85,4 +86,11 @@ def picked_up_sock(state, agent):
     for sock in socks:
         if agent[0] == sock[0] and agent[1] == sock[1]:
             return sock
-    return False
+    return None
+
+
+def dropped_sock(state):
+    if state.batman not in state.socks and random.random() > 0.8:
+        return state.batman
+    else:
+        return None

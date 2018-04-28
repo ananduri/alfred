@@ -38,7 +38,42 @@ V
    --->
       |
       V
-      * `Implement` _collision detection_
-          - with batman
-          - with socks
+      `Implement` _collision detection_
+      |   - with batman
+      |   - with socks
+      V
+   <---
+   |
+   V
+   * `Make` batman _drop_ socks
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
