@@ -64,6 +64,7 @@ while True:
         collected_socks.append(potential_picked_up_sock)
         socks.remove(potential_picked_up_sock)
 
+    print(collected_socks)
 
     # update state
 
@@ -77,7 +78,8 @@ while True:
     state = State(batman, alfred, field, socks)
     
 
-    events = [potential_dropped_sock, potential_picked_up_sock]
+    # could probably use a decorator/closure to simplify this
+    events = [potential_dropped_sock, potential_picked_up_sock, collected_socks]
     print_spacing(events)
 
     time.sleep(1)

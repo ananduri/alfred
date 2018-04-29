@@ -53,11 +53,19 @@ V
 <---
 |
 V   
-`Fix` _bug?_ in keeping track of state
+`Fix` _bug?_ in movement
 |
 --->
    |
-   * `Write` some _unit tests_ for movement
+   V
+   `Find out` why alfred _disappears_ sometimes
+   |    - I think it's b/c collision detection is not working right
+   |
+   V
+   * `Write` a manual test that checks for collision after a large number of runs
+   |
+   V
+   `Write` some _unit tests_ for movement
 
 
 

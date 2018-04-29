@@ -5,6 +5,7 @@ than to thave 10 functions that act on 10 data structures.
 
 from functools import partial
 import random
+import operator as op
 
 def get_square_from_move(state, agent, move):
     field = state.field
@@ -60,11 +61,12 @@ def utility(state, move):
     relative_position = find_diff(state.batman, state.alfred)
     return dot(relative_position, move((0, 0)))
 
+#! doesn't have to return a tuple
 def find_diff(agent1, agent2):
     return (agent1[0] - agent2[0], agent1[1] - agent2[1])
 
 def dot(position1, position2):
-    return sum(position1[x] * position2[x] for x in range(len(position1)))
+    return sum(map(op.mul, position1, position2))
 
 
 """
@@ -72,20 +74,22 @@ def dot(position1, position2):
 """
 # hard-coded to apply to alfred only
 def keep_moves_without_collision(state, moves):
-    return filter(partial(collision, state.alfred, state.batman), moves)
+    return filter(partial(detect_collision, state.batman, state.alfred), moves)
 
-def collision(agent0, agent1, move):
-    new_agent0 = move(agent0)
-    if new_agent0[0] == agent1[0] and new_agent[1] == agent1[1]:
-        return True
-    else:
-        return False
+def detect_collision(agent0, agent1, move):
+    return is_collision(agent0, move(agent1))
+
+"""
+(all (map = agent0 agent1))
+"""
+def is_collision(position0, position1):
+    return all(map(op.eq, position0, position1))
 
 def picked_up_sock(state):
     socks = state.socks
     agent = state.alfred
     for sock in socks:
-        if agent[0] == sock[0] and agent[1] == sock[1]:
+        if is_collision(agent, sock):
             return sock
     return None
 

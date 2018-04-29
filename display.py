@@ -21,6 +21,7 @@ def print_field(state):
             print('#', end='') if square else print(' ', end='')
         print('\n', end='')
 
+
 def print_empty_field(field):
     for x in field:
         for y in x:
