@@ -52,11 +52,11 @@ while True:
         state.socks.append(potential_dropped_sock)
 
     # detect if alfred picked up socks
-    potential_dropped_sock = picked_up_sock(state)
-    if potential_dropped_sock:
+    potential_picked_up_sock = picked_up_sock(state)
+    if potential_picked_up_sock:
         print('picked up sock')
-        collected_socks.append(potential_dropped_sock)
-        state.socks.remove(potential_dropped_sock)
+        collected_socks.append(potential_picked_up_sock)
+        state.socks.remove(potential_picked_up_sock)
 
 
     # update state
@@ -64,5 +64,8 @@ while True:
     alfred = best_move(alfred)
     state = State(batman, alfred, field, state.socks)
     
+    print('\n' * (2 - sum(map(
+        lambda x: 0 if x is None else 1, 
+        [potential_dropped_sock, potential_picked_up_sock]))))
+
     time.sleep(1)
-    print('\n')

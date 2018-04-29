@@ -90,7 +90,7 @@ def picked_up_sock(state):
     return None
 
 def dropped_sock(state):
-    if state.batman not in state.socks and random.random() > 0.8:
+    if state.batman not in state.socks and random.random() > 0.9:
         return state.batman
     else:
         return None
