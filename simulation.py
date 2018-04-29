@@ -60,12 +60,15 @@ while True:
 
 
     # update state
+    # do need to reference these guys as state.batman? if not, why not?
+    # we don't, because they're both references to the same object.
+    # state is not an object that makes copies; it's just a tuple
     batman = random_move(batman)
     alfred = best_move(alfred)
     state = State(batman, alfred, field, state.socks)
     
-    print('\n' * (2 - sum(map(
-        lambda x: 0 if x is None else 1, 
-        [potential_dropped_sock, potential_picked_up_sock]))))
+
+    events = [potential_dropped_sock, potential_picked_up_sock]
+    print_spacing(events)
 
     time.sleep(1)

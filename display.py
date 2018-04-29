@@ -21,9 +21,18 @@ def print_field(state):
             print('#', end='') if square else print(' ', end='')
         print('\n', end='')
 
-
 def print_empty_field(field):
     for x in field:
         for y in x:
             print('#', end='') if y else print(' ', end='')
         print('\n', end='')
+
+
+def number_new_lines(events):
+    n = (len(events) - sum(map(
+        lambda x: 0 if x is None else 1, 
+        events)))
+    return n
+
+def print_spacing(events):
+    print('\n' * number_new_lines(events))
