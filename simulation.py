@@ -23,14 +23,11 @@ collected_socks = []
 state = State(initial_batman, initial_alfred, field, initial_socks)
 
 
+# Run simulation
+
 # associate moves_knight with batman
 # and moves_king with alfred
 # at a higher level
-# does that imply objects? or just structs?
-
-
-# Run simulation
-
 moves_king = list(king_moves())
 moves_knight = list(knight_moves())
 while True:
@@ -67,12 +64,6 @@ while True:
     print(collected_socks)
 
     # update state
-
-    # do need to reference these guys as state.batman? if not, why not?
-    # we don't, because they're both references to the same object.
-    # but then... the object being referenced is changing?
-    # yes. just replacing the thing being referenced with a new version.
-    # is that how functional programming is done?
     batman = random_move(batman)
     alfred = best_move(alfred)
     state = State(batman, alfred, field, socks)

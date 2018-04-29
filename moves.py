@@ -48,7 +48,7 @@ def keep_moves_on_board(state, agent, moves):
 
 
 # for now, best move is defined as the one that
-# takes you closest to agent2
+# takes alfred closest to batman
 """
 (highest-elem (map utility moves))
 """
